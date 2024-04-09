@@ -25,6 +25,10 @@ app.post('/visit', async (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.send('wrong portal');
+});
+
 
 app.listen(8080, () => {
     console.log('Server is running on port 8080');
