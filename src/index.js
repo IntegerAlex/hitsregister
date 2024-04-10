@@ -1,6 +1,7 @@
 // const express = require('express'); 
 import express from 'express';
 const app = express();
+import cors from 'cors';
 // const dotenv = require('dotenv');
 import 'dotenv/config'
 import { addHit , connect } from '../model/connect.js';
@@ -8,7 +9,7 @@ import { addHit , connect } from '../model/connect.js';
 connect(); // Call the connect function to establish a connection to the MongoDB server
 app.use(express.urlencoded({ extended: true })); // To parse the incoming requests with urlencoded payloads
 app.use(express.json()); // To parse the incoming requests with JSON payloads
-
+app.use(cors()); // To enable Cross-Origin Resource Sharing for all routes
 app.post('/visit', async (req, res) => {
     try {
         const response = req.body; // Get the request body
