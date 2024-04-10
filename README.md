@@ -2,6 +2,16 @@
 
 This project implements a hit counter for a blog site using an Express server and a MongoDB database. Additionally, it relies on the JSON provided by the [user-input-logger](https://github.com/IntegerAlex/user-input-logger) to log user information.
 
+## Blog Integration
+
+This hit counter and user input logger are integral parts of my blog site. They enhance the user experience by providing valuable insights into visitor interactions and engagement.
+
+### Links
+
+GitHub Repository : [BLOG REPOSITORY](https://github.com/IntegerAlex/personal-blog)
+
+Live Project: [BLOG SITE](https://blogs.flexhost.com)
+
 ## Installation
 
 Clone the repository:
@@ -32,9 +42,9 @@ User Input Logger: This project includes a custom npm library called user-input-
 
 ## Dependencies
 
-Express: Fast, unopinionated, minimalist web framework for Node.js.
-MongoDB: General-purpose, document-based, distributed database built for modern application developers and for the cloud era.
-user-input-logger: Custom npm library for logging user input information. [user-input-logger](https://www.npmjs.com/package/user-input-logger)
+- Express: Fast, unopinionated, minimalist web framework for Node.js.
+- MongoDB: General-purpose, document-based, distributed database built for modern application developers and for the cloud era.
+- user-input-logger: Custom npm library for logging user input information. [user-input-logger](https://www.npmjs.com/package/user-input-logger)
 
 ## Contributing
 
