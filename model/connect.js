@@ -5,10 +5,8 @@ import dotenv from 'dotenv/config';
 // dotenv.config(); // Load the environment variables from the .env file
 
 // Set the variables for the MongoDB connection
-const admin = process.env.MONGODB_USERNAME;
-const password = process.env.MONGO_DB_PASSWORD;
 // console.log(admin  + " " + password);
-const uri = `mongodb+srv://${admin}:${password}@hits.4o3jqnb.mongodb.net/?retryWrites=true&w=majority&appName=hits`;
+const uri = process.env.MONGODB_URI;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
