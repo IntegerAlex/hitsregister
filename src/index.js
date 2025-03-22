@@ -1,5 +1,5 @@
 import express from 'express';
-import cors from 'cors'; // Default allows all origins
+import cors from 'cors'; // Ensure this is installed
 import 'dotenv/config';
 import { addHit, connect } from '../model/connect.js';
 
@@ -7,10 +7,13 @@ connect();
 
 const app = express();
 
-// Default CORS configuration (allow all origins, no credentials)
-app.use(cors()); 
+// CORS configuration (allow all origins)
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Explicit preflight handling (optional but safe)
+app.options('/visit', cors()); // Handle OPTIONS for /visit
 
 app.post('/visit', async (req, res) => {
   try {
