@@ -1,5 +1,5 @@
 import express from 'express';
-import cors from 'cors'; // Ensure this is installed
+import cors from 'cors';
 import 'dotenv/config';
 import { addHit, connect } from '../model/connect.js';
 
@@ -7,13 +7,19 @@ connect();
 
 const app = express();
 
-// CORS configuration (allow all origins)
+// CORS configuration
 app.use(cors());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Explicit preflight handling (optional but safe)
-app.options('/visit', cors()); // Handle OPTIONS for /visit
+// Explicit preflight handling
+app.options('/visit', cors());
 
 app.post('/visit', async (req, res) => {
   try {
@@ -35,6 +41,7 @@ app.get('/', (req, res) => {
   res.send('wrong portal');
 });
 
-app.listen(8080, () => {
-  console.log('Server is running on port 8080');
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
